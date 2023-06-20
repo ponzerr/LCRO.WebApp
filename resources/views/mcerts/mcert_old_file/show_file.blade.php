@@ -45,7 +45,7 @@
 
                         <div class="md:col-span-6">
                             <label for="mcert_file_path" class="text-sm font-bold text-gray-500 tracking-wide">PDF File</label>
-                            <a href="{{ asset('storage/' . $mcertFile->mcert_file_path) }}" target="_blank" class="text-blue-600 hover:underline">
+                            <a href="{{ asset('mcerts/' . $mcertFile->mcert_file_path) }}" target="_blank" class="text-blue-600 hover:underline">
                             <textarea name="mcert_file_path" id="mcert_file_path" class="h-10 border mt-1 rounded px-4 w-full bg-gray-100 flex items-center text-base">{{$mcertFile->mcert_file_path}}</textarea>
                              </a>
                             </div>

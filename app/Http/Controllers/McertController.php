@@ -326,8 +326,8 @@ class McertController extends Controller
         if ($request->hasFile('mcert_file_attach_document')) {
             $file = $request->file('mcert_file_attach_document');
             $filename = time() . '_' . $file->getClientOriginalName();
-            $path = $file->storeAs('mcerts', $filename, 'public'); // Change 'public' to your disk name if different
             $path2 = $file->storeAs('', $filename, 's3'); // storing inside s3 box
+            $path = $file->move('mcerts/', $filename); // Change 'public' to your disk name if different
             // Set the file path in the model
             $mcertFile->mcert_file_path = $path;
         }
@@ -431,7 +431,7 @@ class McertController extends Controller
     public function destroy_mcert_old_file(McertFile $mcertFile)
     {
             // Get the file path
-        $filePath = public_path('storage/' . $mcertFile->mcert_file_path);
+        $filePath = public_path('mcerts/' . $mcertFile->mcert_file_path);
 
         // Check if the file exists before attempting to delete
         if (file_exists($filePath)) {
@@ -548,7 +548,7 @@ class McertController extends Controller
     public function destroy_mcert_new_file(McertNewFile $mcertNewFile)
     {
         // Get the file path
-        $newfilePath = public_path('storage/' . $mcertNewFile->mcert_new_file_path);
+        $newfilePath = public_path('mcerts/' . $mcertNewFile->mcert_new_file_path);
 
         // Delete the file from the directory
         if (file_exists($newfilePath)) {
@@ -656,7 +656,7 @@ class McertController extends Controller
     public function destroy_mcert_app_file(McertAppFile $mcertAppFile)
     {
         // Get the file path
-        $appfilePath = public_path('storage/' . $mcertAppFile->mcert_app_file_path);
+        $appfilePath = public_path('mcerts/' . $mcertAppFile->mcert_app_file_path);
 
         // Delete the file from the directory
         if (file_exists($appfilePath)) {

@@ -80,11 +80,10 @@
             @foreach ($results as $result)
                 <tr class="border-b bg-neutral-100">
                   <th class="whitespace-nowrap px-6 py-2 text-center">{{ $result['objectKey'] }}</th>
-                
                   <!-- Add more table cells for other fields -->
                   <th class="whitespace-nowrap px-6 py-2 text-center">
                     <!-- show button -->
-                    <a href="#" class="inline-block mb-1 ml-4">
+                    <a href="{{ asset('mcerts/' . str_replace('.json','',$result['objectKey'])) }}" target="_blank" class="inline-block mb-1 ml-4">
                       <button type="button" class="flex items-center h-10 w-28 mr-4 rounded-lg bg-gradient-to-tr from-blue-600 to-blue-400 py-3 px-4 text-center font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" data-ripple-light="true">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" class="h-4 w-4 mr-2">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" />
