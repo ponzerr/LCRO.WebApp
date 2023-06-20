@@ -474,8 +474,8 @@ $column3Y = $column1Y;
 
 // Draw the vertical lines
 $pdf->SetLineWidth(0.001);
-$pdf->Line($column1X + 3.20, $column1Y, $column1X + 3.20, $column1Y + 2.4);
-$pdf->Line($column2X + 1.85, $column2Y, $column2X + 1.85, $column2Y + 2.4);
+$pdf->Line($column1X + 3.20, $column1Y, $column1X + 3.20, $column1Y + 5.4);
+$pdf->Line($column2X + 1.85, $column2Y, $column2X + 1.85, $column2Y + 5.4);
 
 // Set the content for the first column
 $pdf->SetXY($column1X + 0.90, $column1Y );
@@ -528,7 +528,7 @@ $pdf->SetLineWidth($lineWidth);
 $pdf->Line($lineX1, $lineY2, $lineX2, $lineY2);
 
 $lineX = $column1X + 2.40; // Adjust the X-coordinate based on the column width
-$lineY1 = $column1Y + 1.95; // Adjust the starting Y-coordinate of the line
+$lineY1 = $column1Y + 0.90; // Adjust the starting Y-coordinate of the line
 $lineY2 = $column1Y + 0.54; // Adjust the ending Y-coordinate of the line
 
 // Define the thickness of the vertical line
@@ -539,7 +539,7 @@ $pdf->SetLineWidth($lineWidth);
 $pdf->Line($lineX, $lineY1, $lineX, $lineY2);
 
 $lineX = $column3X + 1.70; // Adjust the X-coordinate based on the column width
-$lineY1 = $column3Y + 1.95; // Adjust the starting Y-coordinate of the line
+$lineY1 = $column3Y + 0.90; // Adjust the starting Y-coordinate of the line
 $lineY2 = $column3Y + 0.54; // Adjust the ending Y-coordinate of the line
 
 // Define the thickness of the vertical line
@@ -686,6 +686,324 @@ $pdf->SetLineWidth($lineWidth);
 // Draw the horizontal line
 $pdf->Line($lineX1, $lineY, $lineX2, $lineY);
 
+// Set the labels for each column
+$pdf->SetFont('Helvetica', '', 8);
+
+// Label for column 1
+$label1X = $column1X + 0.005;
+$label1Y = $column1Y + 0.99;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(City/Municipality)', 0, 0, 'L');
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.15;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $mcert->mcert_g_place_of_birth_city, 0, 0, 'L');
+
+// Label for column 1
+$label1X = $column1X + 1.20;
+$label1Y = $column1Y + 0.99;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(Province)', 0, 0, 'L');
+
+// Set the position for the province value
+$dayValueX = $label1X + 0.09;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $mcert->mcert_g_place_of_birth_province, 0, 0, 'L');
+
+// Label for column 1
+$label1X = $column1X + 2.40;
+$label1Y = $column1Y + 0.99;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(Country)', 0, 0, 'L');
+
+// Set the position for the province value
+$dayValueX = $label1X + 0.09;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $mcert->mcert_g_place_of_birth_country, 0, 0, 'L');
+
+// Label for column 3
+$label1X = $column3X - 0.0010;
+$label1Y = $column3Y + 0.99;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(City/Municipality)', 0, 0, 'R');
+
+// Set the position for the city value
+$dayValueX = $label1X - 0.0010;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_place_of_birth_city, 0, 0, 'R');
+
+// Label for column 3
+$label1X = $column3X + 0.90;
+$label1Y = $column3Y + 0.99;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(Province)', 0, 0, 'R');
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.20;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.15, 0, $mcert->mcert_b_place_of_birth_province, 0, 0, 'R');
+
+// Label for column 3
+$label1X = $column3X + 2.10;
+$label1Y = $column3Y + 0.99;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(Country)', 0, 0, 'R');
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.20;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.15, 0, $mcert->mcert_b_place_of_birth_country, 0, 0, 'R');
+
+// Calculate the width of the line based on the border width
+$lineWidth = $borderWidth / 2;
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 4.30;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 1.10;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '3. Place of Birth', 0, 0, 'L');
+
+$lineX = $column1X + 1.10; // Adjust the X-coordinate based on the column width
+$lineY1 = $column1Y + 1.65; // Adjust the starting Y-coordinate of the line
+$lineY2 = $column1Y + 1.30; // Adjust the ending Y-coordinate of the line
+
+// Define the thickness of the vertical line
+$lineWidth = - 0.2; // Adjust the line width as needed, a positive value
+
+// Draw the vertical line
+$pdf->SetLineWidth($lineWidth);
+$pdf->Line($lineX, $lineY1, $lineX, $lineY2);
+
+$lineX = $column3X + 0.40; // Adjust the X-coordinate based on the column width
+$lineY1 = $column3Y + 1.65; // Adjust the starting Y-coordinate of the line
+$lineY2 = $column3Y + 1.30; // Adjust the ending Y-coordinate of the line
+
+// Define the thickness of the vertical line
+$lineWidth = - 0.2; // Adjust the line width as needed, a positive value
+
+// Draw the vertical line
+$pdf->SetLineWidth($lineWidth);
+$pdf->Line($lineX, $lineY1, $lineX, $lineY2);
+
+// Label for column 3
+$label1X = $column1X + 0.10;
+$label1Y = $column1Y + 1.40;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(Male/Female)', 0, 0, 'L');
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.25;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_sex, 0, 0, 'L');
+
+// Label for column 3
+$label1X = $column1X + 1.70;
+$label1Y = $column1Y + 1.40;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(Citizenship)', 0, 0, 'L');
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.15;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_citizenship, 0, 0, 'L');
+
+// Label for column 3
+$label1X = $column3X - 0.0030;
+$label1Y = $column3Y + 1.40;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(Male/Female)', 0, 0, 'R');
+
+// Set the position for the city value
+$dayValueX = $label1X - 0.10;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_sex, 0, 0, 'R');
+
+// Label for column 3
+$label1X = $column3X + 1.50;
+$label1Y = $column3Y + 1.40;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(Citizenship)', 0, 0, 'R');
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.01;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_citizenship, 0, 0, 'R');
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 1.48;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '4. Sex/Citizenship', 0, 0, 'L');
+
+// Calculate the width of the line based on the border width
+$lineWidth = $borderWidth / 2;
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 4.65;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 1.85;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '5. Residence', 0, 0, 'L');
+
+
+// Set the labels for each column
+$pdf->SetFont('Helvetica', '', 7);
+
+// Label for column 1
+$label1X = $column1X + 0.15;
+$label1Y = $column1Y + 1.75;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(House No., St., Barangay, City/Municipality, Province, Country)', 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+// Set the position for the city value
+$dayValueX = $label1X + 0.15;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_residence, 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 7);
+// Label for column 3
+$label1X = $column3X + 2.10;
+$label1Y = $column3Y + 1.75;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(House No., St., Barangay, City/Municipality, Province, Country)', 0, 0, 'R');
+
+$pdf->SetFont('Helvetica', '', 8);
+// Set the position for the city value
+$dayValueX = $label1X + 0.01;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_residence, 0, 0, 'R');
+
+// Calculate the width of the line based on the border width
+$lineWidth = $borderWidth / 2;
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 5.05;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 0.15;
+$label1Y = $column1Y + 1.75;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.90;
+$dayValueY = $label1Y + 0.47; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_religion, 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 5.15;
+$label1Y = $column1Y + 1.75;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 1.33;
+$dayValueY = $label1Y + 0.47; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_religion, 0, 0, 'R');
+
+// Calculate the width of the line based on the border width
+$lineWidth = $borderWidth / 2;
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 5.43;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 2.20;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '6. Religion/Religious Sect', 0, 0, 'L');
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 2.60;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '7. Civil Status', 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 0.40;
+$label1Y = $column1Y + 2.10;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.90;
+$dayValueY = $label1Y + 0.47; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_civil_status, 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 5.15;
+$label1Y = $column1Y + 2.10;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 1.10;
+$dayValueY = $label1Y + 0.47; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_civil_status, 0, 0, 'R');
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 5.85;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+
+
+
 // Convert the HTML content to PDF using FPDF's MultiCell method
         $pdf->SetFont('Arial', '', 12);
         
@@ -766,10 +1084,10 @@ $pdf->Line($lineX1, $lineY, $lineX2, $lineY);
         // AWS SDK configuration
         $s3 = new S3Client([
             'version' => 'latest',
-            'region' => 'ap-southeast-1',
+            'region' => env('AWS_DEFAULT_REGION'),
             'credentials' => [
-                'key' => 'AKIAQQTY5T2ZYJLIW5CB',
-                'secret' => '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',
+                'key' => env('AWS_ACCESS_KEY_ID'),
+                'secret' => env('AWS_SECRET_ACCESS_KEY'),
             ],
         ]);
 

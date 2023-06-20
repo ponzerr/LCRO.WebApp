@@ -20,14 +20,14 @@
           </a>
           
           <!-- upload file button -->
-          <a href="{{ route('mcerts.pdf_app') }}" class="ml-2 inline-block">
+          <!-- <a href="{{ route('mcerts.pdf_app') }}" class="ml-2 inline-block">
             <button type="button" class="flex items-center mr-4 rounded-lg bg-gradient-to-tr from-pink-600 to-pink-400 py-3 px-6 text-center font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" data-ripple-light="true">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" class="h-5 w-5 mr-2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"></path>
               </svg>
               <span>Upload Files</span>
             </button>
-          </a>
+          </a> -->
           </div>
 
 

@@ -357,66 +357,6 @@ class McertController extends Controller
                 // Add more search conditions based on your requirements
         })->get();
 
-        // $searchQuery = $request->input('query');
-
-        // // AWS SDK configuration
-        // $s3 = new S3Client([
-        //     'version' => 'latest',
-        //     'region' => 'ap-southeast-1',
-        //     'credentials' => [
-        //         'key' => 'AKIAQQTY5T2ZYJLIW5CB',
-        //         'secret' => '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',
-        //     ],
-        // ]);
-
-        // $bucketName = 'lcro-pdf-result-bucket';
-        // $folderPath = '';
-        // $results = [];
-        // try {
-        //     // Get the list of objects in the S3 bucket
-        //     $objects = $s3->listObjectsV2([
-        //         'Bucket' => $bucketName,
-        //         'Prefix' => $folderPath,
-        //     ]);
-
-        //     // Iterate through each object and search for the query
-        //     foreach ($objects['Contents'] as $object) {
-        //         $objectKey = $object['Key'];
-
-        //         // Get the contents of the JSON file from S3
-        //         $jsonContent = $s3->getObject([
-        //             'Bucket' => $bucketName,
-        //             'Key' => $objectKey,
-        //         ]);
-
-        //         // Decode the JSON content
-        //         $data = json_decode($jsonContent['Body'], true);
-
-        //         // Perform search on the extracted data
-        //         // Customize this part based on your extracted JSON structure and search criteria
-        //         if (isset($data['Blocks'])) {
-        //             foreach ($data['Blocks'] as $block) {
-        //                 if ($block['BlockType'] === 'LINE' && isset($block['Text']) && strpos(strtoupper($block['Text']), strtoupper($searchQuery)) !== false) {
-        //                     $result = [
-        //                         'objectKey' => $objectKey,
-        //                         'objectName' => $object['Key'],
-        //                         'text' => $block['Text'],
-        //                     ];
-        //                     $results[] = $result;
-        //                     break;
-        //                 }
-        //             }
-
-        //         }
-        //         // dd($results);
-
-        //     }
-        //  return view('results', ['results' => $results]);
-
-        // } catch (AwsException $e) {
-        //     return back()->with('error', 'An error occurred during the search. Please try again.');
-        // }
-
         return view('mcerts.mcert_old_file.index_file', compact('mcertFiles'));
     }
 
