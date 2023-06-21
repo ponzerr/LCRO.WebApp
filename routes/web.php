@@ -79,6 +79,7 @@ Route::controller(McertController::class,)->group(function () {
     Route::put('/mcerts/mcert_application_file/update/{mcertAppFile}', 'update-mcert_app_file')->middleware('auth')->name('mcerts.update_app_file');
 });
 
+
 Route::get('/assign-role', function () {
     $user = User::find(1);
     $user->role = 'admin';
@@ -95,4 +96,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+
+Route::middleware(['custom.auth'])->group(function () {
+    // Your protected routes here
 });

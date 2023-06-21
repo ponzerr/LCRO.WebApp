@@ -474,8 +474,8 @@ $column3Y = $column1Y;
 
 // Draw the vertical lines
 $pdf->SetLineWidth(0.001);
-$pdf->Line($column1X + 3.20, $column1Y, $column1X + 3.20, $column1Y + 5.4);
-$pdf->Line($column2X + 1.85, $column2Y, $column2X + 1.85, $column2Y + 5.4);
+$pdf->Line($column1X + 3.20, $column1Y, $column1X + 3.20, $column1Y + 8.17);
+$pdf->Line($column2X + 1.85, $column2Y, $column2X + 1.85, $column2Y + 8.17);
 
 // Set the content for the first column
 $pdf->SetXY($column1X + 0.90, $column1Y );
@@ -966,7 +966,7 @@ $pdf->Cell(0.50, 0, '6. Religion/Religious Sect', 0, 0, 'L');
 
 // Label for column 2
 $label2X = $column2X + 0.75;
-$label2Y = $column2Y + 2.60;
+$label2Y = $column2Y + 2.65;
 $pdf->SetXY($label2X, $label2Y);
 $pdf->Cell(0.50, 0, '7. Civil Status', 0, 0, 'L');
 
@@ -1001,6 +1001,1001 @@ $pdf->SetLineWidth($lineWidth);
 // Draw the horizontal line
 $pdf->Line($lineX1, $lineY, $lineX2, $lineY);
 
+$pdf->SetFont('Helvetica', '', 7);
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 3.01;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '8. IF PREVIOUSLY ', 0, 0, 'L');
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 3.11;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, 'MARRIED:     How', 0, 0, 'L');
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 3.21;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, 'was  it   dissolved?', 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 0.40;
+$label1Y = $column1Y + 2.10;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.10;
+$dayValueY = $label1Y + 1.00; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_marriage_dissolved, 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 5.15;
+$label1Y = $column1Y + 2.10;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.10;
+$dayValueY = $label1Y + 1.00; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_marriage_dissolved, 0, 0, 'R');
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 6.38;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+$pdf->SetFont('Helvetica', '', 8);
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 3.50;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '9. Place where', 0, 0, 'L');
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 3.63;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, 'dissolved', 0, 0, 'L');
+
+// Set the labels for each column
+$pdf->SetFont('Helvetica', '', 8);
+
+// Label for column 1
+$label1X = $column1X + 0.005;
+$label1Y = $column1Y + 3.48;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(City/Municipality)', 0, 0, 'L');
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.15;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $mcert->mcert_g_marriage_dissolved_place_city, 0, 0, 'L');
+
+// Label for column 1
+$label1X = $column1X + 1.20;
+$label1Y = $column1Y + 3.48;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(Province)', 0, 0, 'L');
+
+// Set the position for the province value
+$dayValueX = $label1X + 0.09;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $mcert->mcert_g_marriage_dissolved_place_province, 0, 0, 'L');
+
+// Label for column 1
+$label1X = $column1X + 2.40;
+$label1Y = $column1Y + 3.48;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(Country)', 0, 0, 'L');
+
+// Set the position for the province value
+$dayValueX = $label1X + 0.09;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $mcert->mcert_g_marriage_dissolved_place_country, 0, 0, 'L');
+
+// Label for column 3
+$label1X = $column3X - 0.0010;
+$label1Y = $column3Y + 3.48;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(City/Municipality)', 0, 0, 'R');
+
+// Set the position for the city value
+$dayValueX = $label1X - 0.0010;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_marriage_dissolved_place_city, 0, 0, 'R');
+
+// Label for column 3
+$label1X = $column3X + 0.90;
+$label1Y = $column3Y + 3.48;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(Province)', 0, 0, 'R');
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.20;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.15, 0, $mcert->mcert_b_marriage_dissolved_place_province, 0, 0, 'R');
+
+// Label for column 3
+$label1X = $column3X + 2.10;
+$label1Y = $column3Y + 3.48;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(Country)', 0, 0, 'R');
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.20;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.15, 0, $mcert->mcert_b_marriage_dissolved_place_country, 0, 0, 'R');
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 6.79;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+
+// ___________________________________________
+
+$pdf->SetFont('Helvetica', '', 8);
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 3.93;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '10. Date when', 0, 0, 'L');
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 4.08;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, 'dissolved', 0, 0, 'L');
+
+// Set the labels for each column
+$pdf->SetFont('Helvetica', '', 8);
+
+// Label for column 1
+$label1X = $column1X + 0.005;
+$label1Y = $column1Y + 3.90;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(Day)', 0, 0, 'L');
+
+$dayOfdissolve = date('d', strtotime($mcert->mcert_g_marriage_dissolved_date));
+// Set the position for the city value
+$dayValueX = $label1X + 0.15;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $dayOfdissolve, 0, 0, 'L');
+
+// Label for column 1
+$label1X = $column1X + 1.20;
+$label1Y = $column1Y + 3.90;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(Month)', 0, 0, 'L');
+
+$dayOfdissolve = date('F', strtotime($mcert->mcert_g_marriage_dissolved_date));
+// Set the position for the province value
+$dayValueX = $label1X + 0.09;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $dayOfdissolve, 0, 0, 'L');
+
+// Label for column 1
+$label1X = $column1X + 2.40;
+$label1Y = $column1Y + 3.90;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(Year)', 0, 0, 'L');
+
+$dayOfdissolve = date('Y', strtotime($mcert->mcert_g_marriage_dissolved_date));
+// Set the position for the province value
+$dayValueX = $label1X + 0.09;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $dayOfdissolve, 0, 0, 'L');
+
+// Label for column 1
+$label12X = $column3X - 0.46; // Adjust the X-coordinate for column 1 label
+$label12Y = $column3Y + 3.90; // Adjust the Y-coordinate for column 1 label
+$pdf->SetXY($label12X, $label12Y);
+$pdf->Cell(0.01, 0, '(Day)', 0, 0, 'R');
+
+// Extract the day from the date of birth
+$dayOfdissolve = date('d', strtotime($mcert->mcert_b_marriage_dissolved_date));
+// Set the position for the day value
+$dayValueX = $label12X;
+$dayValueY = $label12Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.01, 0, $dayOfdissolve, 0, 0, 'R');
+
+// Label for column 3
+$label1X = $column3X + 0.90;
+$label1Y = $column3Y + 3.90;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(Month)', 0, 0, 'R');
+
+$dayOfdissolve = date('F', strtotime($mcert->mcert_b_marriage_dissolved_date));
+// Set the position for the city value
+$dayValueX = $label1X + 0.20;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.15, 0, $dayOfdissolve, 0, 0, 'R');
+
+// Label for column 3
+$label1X = $column3X + 2.10;
+$label1Y = $column3Y + 3.90;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(Year)', 0, 0, 'R');
+
+$dayOfdissolve = date('Y', strtotime($mcert->mcert_b_marriage_dissolved_date));
+// Set the position for the city value
+$dayValueX = $label1X + 0.20;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.15, 0, $dayOfdissolve, 0, 0, 'R');
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 7.20;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+$pdf->SetFont('Helvetica', '', 7);
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 4.35;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '11. Degree of ', 0, 0, 'L');
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 4.45;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, 'relationship of ', 0, 0, 'L');
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 4.55;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, 'contracting', 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 0.40;
+$label1Y = $column1Y + 3.42 ;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.10;
+$dayValueY = $label1Y + 1.00; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_marriage_dissolved_relationship, 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 5.15;
+$label1Y = $column1Y + 3.42;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.10;
+$dayValueY = $label1Y + 1.00; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_marriage_dissolved_relationship, 0, 0, 'R');
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 7.70;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 4.85;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '12. Name of', 0, 0, 'L');
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 4.95;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, 'Father', 0, 0, 'L');
+
+
+// Set the labels for each column
+$pdf->SetFont('Helvetica', '', 8);
+
+// Label for column 1
+$label1X = $column1X + 0.005;
+$label1Y = $column1Y + 4.80;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(First)', 0, 0, 'L');
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.15;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $mcert->mcert_g_fathers_first_name, 0, 0, 'L');
+
+// Label for column 1
+$label1X = $column1X + 1.20;
+$label1Y = $column1Y + 4.80;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(Middle)', 0, 0, 'L');
+
+// Set the position for the province value
+$dayValueX = $label1X + 0.09;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $mcert->mcert_g_fathers_middle_name, 0, 0, 'L');
+
+// Label for column 1
+$label1X = $column1X + 2.40;
+$label1Y = $column1Y + 4.80;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(Last)', 0, 0, 'L');
+
+
+// Set the position for the province value
+$dayValueX = $label1X + 0.09;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $mcert->mcert_g_fathers_last_name, 0, 0, 'L');
+
+// Label for column 1
+$label12X = $column3X - 0.46; // Adjust the X-coordinate for column 1 label
+$label12Y = $column3Y + 4.80; // Adjust the Y-coordinate for column 1 label
+$pdf->SetXY($label12X, $label12Y);
+$pdf->Cell(0.01, 0, '(First)', 0, 0, 'R');
+
+// Extract the day from the date of birth
+
+// Set the position for the day value
+$dayValueX = $label12X;
+$dayValueY = $label12Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.01, 0, $mcert->mcert_b_fathers_first_name, 0, 0, 'R');
+
+// Label for column 3
+$label1X = $column3X + 0.90;
+$label1Y = $column3Y + 4.80;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(Middle)', 0, 0, 'R');
+
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.20;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.15, 0, $mcert->mcert_b_fathers_middle_name, 0, 0, 'R');
+
+// Label for column 3
+$label1X = $column3X + 2.10;
+$label1Y = $column3Y + 4.80;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(Last)', 0, 0, 'R');
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.20;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.15, 0, $mcert->mcert_b_fathers_last_name, 0, 0, 'R');
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 8.08;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 5.25;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '13. Citizenship ', 0, 0, 'L');
+
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 0.40;
+$label1Y = $column1Y + 4.25;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.10;
+$dayValueY = $label1Y + 1.00; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_fathers_citizenship, 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 5.15;
+$label1Y = $column1Y + 4.25;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.10;
+$dayValueY = $label1Y + 1.00; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_fathers_citizenship, 0, 0, 'R');
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 8.40;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 5.58;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '14. Residence', 0, 0, 'L');
+
+
+// Set the labels for each column
+$pdf->SetFont('Helvetica', '', 7);
+
+// Label for column 1
+$label1X = $column1X + 0.15;
+$label1Y = $column1Y + 5.50;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(House No., St., Barangay, City/Municipality, Province, Country)', 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+// Set the position for the city value
+$dayValueX = $label1X + 0.15;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_fathers_residence, 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 7);
+// Label for column 3
+$label1X = $column3X + 2.10;
+$label1Y = $column3Y + 5.50;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(House No., St., Barangay, City/Municipality, Province, Country)', 0, 0, 'R');
+
+$pdf->SetFont('Helvetica', '', 8);
+// Set the position for the city value
+$dayValueX = $label1X + 0.01;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_fathers_residence, 0, 0, 'R');
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 8.80;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 5.95;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '15. Name of', 0, 0, 'L');
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 6.09;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, 'Mother', 0, 0, 'L');
+
+
+// Set the labels for each column
+$pdf->SetFont('Helvetica', '', 8);
+
+// Label for column 1
+$label1X = $column1X + 0.005;
+$label1Y = $column1Y + 5.90;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(First)', 0, 0, 'L');
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.15;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $mcert->mcert_g_mothers_first_name, 0, 0, 'L');
+
+// Label for column 1
+$label1X = $column1X + 1.20;
+$label1Y = $column1Y + 5.90;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(Middle)', 0, 0, 'L');
+
+// Set the position for the province value
+$dayValueX = $label1X + 0.09;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $mcert->mcert_g_mothers_middle_name, 0, 0, 'L');
+
+// Label for column 1
+$label1X = $column1X + 2.40;
+$label1Y = $column1Y + 5.90;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0, 0, '(Last)', 0, 0, 'L');
+
+
+// Set the position for the province value
+$dayValueX = $label1X + 0.09;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(1.15, 0, $mcert->mcert_g_mothers_last_name, 0, 0, 'L');
+
+// Label for column 1
+$label12X = $column3X - 0.10; // Adjust the X-coordinate for column 1 label
+$label12Y = $column3Y + 5.90; // Adjust the Y-coordinate for column 1 label
+$pdf->SetXY($label12X, $label12Y);
+$pdf->Cell(0.01, 0, '(First)', 0, 0, 'R');
+
+// Extract the day from the date of birth
+
+// Set the position for the day value
+$dayValueX = $label12X;
+$dayValueY = $label12Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.01, 0, $mcert->mcert_b_mothers_first_name, 0, 0, 'R');
+
+// Label for column 3
+$label1X = $column3X + 0.90;
+$label1Y = $column3Y + 5.90;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(Middle)', 0, 0, 'R');
+
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.20;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.15, 0, $mcert->mcert_b_mothers_middle_name, 0, 0, 'R');
+
+// Label for column 3
+$label1X = $column3X + 2.10;
+$label1Y = $column3Y + 5.90;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(Last)', 0, 0, 'R');
+
+// Set the position for the city value
+$dayValueX = $label1X + 0.20;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.15, 0, $mcert->mcert_b_mothers_last_name, 0, 0, 'R');
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 9.20;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 6.35;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '16. Citizenship ', 0, 0, 'L');
+
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 0.40;
+$label1Y = $column1Y + 5.35;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.10;
+$dayValueY = $label1Y + 1.00; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_mothers_citizenship, 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 5.15;
+$label1Y = $column1Y + 5.35;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.10;
+$dayValueY = $label1Y + 1.00; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_mothers_citizenship, 0, 0, 'R');
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 8.40;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+//Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 9.50;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 6.65;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '17. Residence', 0, 0, 'L');
+
+
+// Set the labels for each column
+$pdf->SetFont('Helvetica', '', 7);
+
+// Label for column 1
+$label1X = $column1X + 0.15;
+$label1Y = $column1Y + 6.60;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(House No., St., Barangay, City/Municipality, Province, Country)', 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+// Set the position for the city value
+$dayValueX = $label1X + 0.15;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_mothers_residence, 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 7);
+// Label for column 3
+$label1X = $column3X + 2.10;
+$label1Y = $column3Y + 6.60;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(House No., St., Barangay, City/Municipality, Province, Country)', 0, 0, 'R');
+
+$pdf->SetFont('Helvetica', '', 8);
+// Set the position for the city value
+$dayValueX = $label1X + 0.01;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_mothers_residence, 0, 0, 'R');
+
+//Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 9.85;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 6.95;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '18. Persons who', 0, 0, 'L');
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 7.10;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, 'gave consent', 0, 0, 'L');
+
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 0.40;
+$label1Y = $column1Y + 6.00;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.10;
+$dayValueY = $label1Y + 1.00; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_consent_given_by, 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 5.15;
+$label1Y = $column1Y + 6.00;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.10;
+$dayValueY = $label1Y + 1.00; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_consent_given_by, 0, 0, 'R');
+
+//Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 10.20;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 7.35;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '19. Relationship', 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 0.40;
+$label1Y = $column1Y + 6.35;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.10;
+$dayValueY = $label1Y + 1.00; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_consent_given_relationship, 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 5.15;
+$label1Y = $column1Y + 6.35;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.10;
+$dayValueY = $label1Y + 1.00; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_consent_given_relationship, 0, 0, 'R');
+
+//Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 10.50;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 7.65;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '20. Citizenship', 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 0.40;
+$label1Y = $column1Y + 6.65;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.10;
+$dayValueY = $label1Y + 1.00; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_consent_given_citizenship, 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+$label1X = $column1X + 5.15;
+$label1Y = $column1Y + 6.65;
+$pdf->SetXY($label1X, $label1Y);
+
+$dayValueX = $label1X + 0.10;
+$dayValueY = $label1Y + 1.00; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_consent_given_citizenship, 0, 0, 'R');
+
+//Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 10.80;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Label for column 2
+$label2X = $column2X + 0.75;
+$label2Y = $column2Y + 7.99;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, '21. Residence', 0, 0, 'L');
+
+
+// Set the labels for each column
+$pdf->SetFont('Helvetica', '', 7);
+
+// Label for column 1
+$label1X = $column1X + 0.15;
+$label1Y = $column1Y + 7.90;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(House No., St., Barangay, City/Municipality, Province, Country)', 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 8);
+// Set the position for the city value
+$dayValueX = $label1X + 0.15;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_g_consent_given_residence, 0, 0, 'L');
+
+$pdf->SetFont('Helvetica', '', 7);
+// Label for column 3
+$label1X = $column3X + 2.10;
+$label1Y = $column3Y + 7.90;
+$pdf->SetXY($label1X, $label1Y);
+$pdf->Cell(0.15, 0, '(House No., St., Barangay, City/Municipality, Province, Country)', 0, 0, 'R');
+
+$pdf->SetFont('Helvetica', '', 8);
+// Set the position for the city value
+$dayValueX = $label1X + 0.01;
+$dayValueY = $label1Y + 0.15; // Adjust the Y-coordinate as needed
+$pdf->SetXY($dayValueX, $dayValueY);
+$pdf->Cell(0.02, 0, $mcert->mcert_b_consent_given_residence, 0, 0, 'R');
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 11.17;
+$lineX1 = $x1 + $lineWidth;
+$lineX2 = $x2 - $lineWidth;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 11.40;
+$lineX1 = $x1 + 3.37;
+$lineX2 = $x2 - 3.52;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+$lineY = $applicationY + 12.30;
+$lineX1 = $x1 + 3.37;
+$lineX2 = $x2 - 3.52;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Calculate the coordinates for the vertical line
+$lineX = $x1 + 4.29;
+$lineY1 = $applicationY + 12.30;
+$lineY2 = $y2 - 1.21;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+// Draw the vertical line
+$pdf->Line($lineX, $lineY1, $lineX, $lineY2);
+
+// Calculate the coordinates for the vertical line
+$lineX = $x1 + 3.37;
+$lineY1 = $applicationY + 12.30;
+$lineY2 = $y2 - 1.21;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+// Draw the vertical line
+$pdf->Line($lineX, $lineY1, $lineX, $lineY2);
+
+// Set the labels for each column
+$pdf->SetFont('Helvetica', '', 8);
+// Label for column 2
+$label2X = $column2X + 0.87;
+$label2Y = $column2Y + 8.65;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, 'Excempt from', 0, 0, 'L');
+// Label for column 2
+$label2X = $column2X + 0.89;
+$label2Y = $column2Y + 8.85;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, 'documentary', 0, 0, 'L');
+// Label for column 2
+$label2X = $column2X + 0.95;
+$label2Y = $column2Y + 9.04;
+$pdf->SetXY($label2X, $label2Y);
+$pdf->Cell(0.50, 0, 'stamp tax', 0, 0, 'L');
+
+// Calculate the coordinates for the vertical line
+$lineX = $x1 + 3.80;
+$lineY1 = $applicationY + 12.60;
+$lineY2 = $y2 - 0.31;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+// Draw the vertical line
+$pdf->Line($lineX, $lineY1, $lineX, $lineY2);
+
+// Calculate the coordinates for the vertical line
+$lineX = $x1 + 3.80;
+$lineY1 = $applicationY + 11.40;
+$lineY2 = $y2 - 1.43;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+// Draw the vertical line
+$pdf->Line($lineX, $lineY1, $lineX, $lineY2);
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 11.35;
+$lineX1 = $x1 + 0.60;
+$lineX2 = $x2 - 5.10;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Set the font and position for the label
+$pdf->SetFont('Helvetica', '', 8);
+$labelX = ($lineX1 + $lineX2) - 2.60;
+$labelY = $lineY + 0.13;
+// Add the label
+$pdf->Text($labelX, $labelY, '(Signature of Applicant)');
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 12.40;
+$lineX1 = $x1 + 0.60;
+$lineX2 = $x2 - 5.10;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Set the font and position for the label
+$pdf->SetFont('Helvetica', '', 8);
+$labelX = ($lineX1 + $lineX2) - 3.30;
+$labelY = $lineY + 0.12;
+// Add the label
+$pdf->Text($labelX, $labelY, '(Signature Over Printed Name of the Civil Registrar)');
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 11.35;
+$lineX1 = $x1 + 7.10;
+$lineX2 = $x2 - 2.80;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Set the font and position for the label
+$pdf->SetFont('Helvetica', '', 8);
+$labelX = ($lineX1 + $lineX2) - 6.99;
+$labelY = $lineY + 0.13;
+// Add the label
+$pdf->Text($labelX, $labelY, '(Signature of Applicant)');
+
+// Calculate the coordinates for the horizontal line
+$lineY = $applicationY + 12.40;
+$lineX1 = $x1 + 7.10;
+$lineX2 = $x2 - 2.80;
+// Set the line thickness
+$pdf->SetLineWidth($lineWidth);
+// Draw the horizontal line
+$pdf->Line($lineX1, $lineY, $lineX2, $lineY);
+
+// Set the font and position for the label
+$pdf->SetFont('Helvetica', '', 8);
+$labelX = ($lineX1 + $lineX2) - 7.75;
+$labelY = $lineY + 0.13;
+// Add the label
+$pdf->Text($labelX, $labelY, '(Signature Over Printed Name of the Civil Registrar)');
+
+$pdf->SetFont('Times', 'I', 8);
+$pdf->SetDrawColor(255, 255, 255); // Set draw color to white for transparent border
+
+// Calculate the width and height for the paragraph cell
+$paragraphWidth = ($x2 - $x1) / 2.50 - 0.20;
+$paragraphHeight = 0.11;
+
+// Calculate the coordinates for the paragraph cell
+$paragraphX = $x1 + 0.3;
+$paragraphY = $sirMadamY + 9.89;
+$pdf->SetXY($paragraphX, $paragraphY);
+$pdf->MultiCell($paragraphWidth, $paragraphHeight, "     SUBSCRIBED AND SWORN to before me this_______day of__________________,______________,at___________________________,Philippines affiant who exchibited to me his Community Tax Cert.________________issued on__________________________,_______,at______________________________________", 0, 'J', false);
+
+// Calculate the coordinates for the second paragraph cell
+$secondParagraphX = $paragraphX + $paragraphWidth + 1.20;
+$secondParagraphY = $paragraphY;
+$pdf->SetXY($secondParagraphX, $secondParagraphY);
+$pdf->MultiCell($paragraphWidth, $paragraphHeight, "     SUBSCRIBED AND SWORN to before me this_______day of__________________,______________,at___________________________,Philippines affiant who exchibited to me his Community Tax Cert.________________issued on__________________________,_______,at______________________________________", 0, 'J', false);
 
 
 
@@ -1018,7 +2013,7 @@ $pdf->Line($lineX1, $lineY, $lineX2, $lineY);
 
         // Force the download of the PDF
         return response()->file(storage_path('app/public/marriage/' . $filename));
-    
+        
     }
 
 

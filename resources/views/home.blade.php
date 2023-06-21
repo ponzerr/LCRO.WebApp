@@ -109,8 +109,8 @@
   <!-- s</div> -->
 </div>
 @endif
-<!-- @if(request()->routeIs(['mcerts.home']))
-<div class="flex mt-5">
+@if(request()->routeIs(['mcerts.home']))
+<div class="flex justify-center mt-8">
   <div class="ml-4 mr-4 relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
     <div class="relative mx-4 -mt-6 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
       <img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="img-blur-shadow" layout="fill" />
@@ -120,13 +120,15 @@
         BIRTH CERTIFICATE
       </h5>
       <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-        The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona.
+      The birth certificate is a crucial record and proof that ensures the recognition and documentation of an individual's birth and identity.
       </p>
     </div>
     <div class="p-6 pt-0">
+      <a href="#" class="inline-block mb-1 ml-4">
       <button class="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button" data-ripple-light="true">
-        Read More
+        View
       </button>
+      </a>
     </div>
   </div>
 
@@ -139,13 +141,15 @@
         DEATH CERTIFICATE
       </h5>
       <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-        The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona.
+      The death certificate plays a vital role in documenting the end of a person's life and serves as an essential record for official and personal use.
       </p>
     </div>
     <div class="p-6 pt-0">
+    <a href="#" class="inline-block mb-1 ml-4">
       <button class="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button" data-ripple-light="true">
-        Read More
+      View
       </button>
+    </a>
     </div>
   </div>
 
@@ -158,18 +162,19 @@
         MARRIAGE CERTIFICATE
       </h5>
       <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-        The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona.
+      A marriage certificate is an official document issued by a government authority that confirms the legal union of two individuals in marriage.
       </p>
     </div>
     <div class="p-6 pt-0">
+    <a href="{{route('mcerts.index_file')}}" class="inline-block mb-1 ml-4">
       <button class="select-none rounded-lg bg-pink-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button" data-ripple-light="true">
-        Read More
+      View
       </button>
     </div>
   </div>
 </div>
 
-@endif -->
+@endif
 
 
 @endsection

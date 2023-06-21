@@ -79,7 +79,7 @@
             </a>
         </li>
 
-        <li class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
+        <!-- <li class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
             <a href="{{route('mcerts.index_new_file')}}">
             <button
             data-ripple-light="true"
@@ -94,7 +94,7 @@
             These are recent marriage certficates.
             </div>
             </a>
-        </li>
+        </li> -->
 
         @elseif(request()->routeIs(['mcerts.index', 'generate-approved-report','mcerts.index_app_file', 'mcerts.pdf_app', 'mcerts.show_app_file', 'mcerts.edit_app_file']))
         <li class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
@@ -128,7 +128,7 @@
             data-tooltip="tooltip"
             class="absolute w-max whitespace-normal break-words rounded-lg border border-blue-gray-50 bg-white p-4 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none"
             >
-            These are old marriage certficates.
+            These user accounts waiting for approval.
             </div>
             </a>
         </li>
