@@ -316,7 +316,9 @@ class McertController extends Controller
             'mcert_file_registry_no' => 'required',
             'mcert_file_groom_name' => 'required',
             'mcert_file_bride_name' => 'required',
+            'mcert_file_date_of_marriage' =>'required|date',
             'mcert_file_attach_document' => 'required',
+            
         ]);
     
         // Create a new instance of the model
@@ -327,7 +329,8 @@ class McertController extends Controller
             $file = $request->file('mcert_file_attach_document');
             $filename = time() . '_' . $file->getClientOriginalName();
             $path2 = $file->storeAs('', $filename, 's3'); // storing inside s3 box
-            $path = $file->move('mcerts/', $filename); // Change 'public' to your disk name if different
+            // dd($path2);
+            $path = $file->storeAs('certs', $filename, 'public'); // Change 'public' to your disk name if different
             // Set the file path in the model
             $mcertFile->mcert_file_path = $path;
         }
@@ -336,7 +339,7 @@ class McertController extends Controller
         $mcertFile->save();
     
         return redirect()->route('mcerts.index_file')
-            ->with('success', 'Marriage Application stored Successfully.');
+            ->with('success', 'Marriage Certificate stored Successfully.');
 
         // $file = $request->file('file');
         // $path = $file->store('', 's3');
@@ -352,8 +355,8 @@ class McertController extends Controller
                 ->orWhere('mcert_file_groom_name', 'LIKE', '%' . $query . '%')
                 ->orWhere('mcert_file_bride_name', 'LIKE', '%' . $query . '%')
                 ->orWhere('mcert_file_attach_document', 'LIKE', '%' . $query . '%')
-                ->orWhere('mcert_file_path', 'LIKE', '%' . $query . '%')
-                ->orWhere('created_at', 'LIKE', '%' . $query . '%');
+                ->orWhere('mcert_file_date_of_marriage', 'LIKE', '%' . $query . '%')
+                ->orWhere('mcert_file_path', 'LIKE', '%' . $query . '%');
                 // Add more search conditions based on your requirements
         })->get();
 
@@ -371,7 +374,7 @@ class McertController extends Controller
     public function destroy_mcert_old_file(McertFile $mcertFile)
     {
             // Get the file path
-        $filePath = public_path('mcerts/' . $mcertFile->mcert_file_path);
+        $filePath = public_path('storage/' . $mcertFile->mcert_file_path);
 
         // Check if the file exists before attempting to delete
         if (file_exists($filePath)) {
@@ -381,13 +384,14 @@ class McertController extends Controller
                 $mcertFile->delete();
 
                 return redirect()->route('mcerts.index_file')
-                    ->with('success', 'Marriage Application deleted successfully.');
+                    ->with('success', 'Marriage Certificate deleted successfully.');
             } else {
                 // Unable to delete the file
                 return redirect()->route('mcerts.index_file')
                     ->with('error', 'Failed to delete the file. Please try again.');
             }
         } else {
+            $mcertFile->delete();
             // File doesn't exist
             return redirect()->route('mcerts.index_file')
                 ->with('error', 'File not found.');
@@ -405,6 +409,7 @@ class McertController extends Controller
             'mcert_file_registry_no' => '',
             'mcert_file_groom_name' => '',
             'mcert_file_bride_name' => '',
+            'mcert_file_date_of_marriage' => 'date',
             'mcert_file_attach_document' => ''
         ]);
     
@@ -412,7 +417,7 @@ class McertController extends Controller
         $mcertFile->update($request->all());
     
         return redirect()->route('mcerts.index_file')
-            ->with('success', 'Marriage Application Updated Successfully.');
+            ->with('success', 'Marriage Certificate Updated Successfully.');
     }
     
     //------------------------------------------------------------------------------------------------------- 
@@ -488,7 +493,7 @@ class McertController extends Controller
     public function destroy_mcert_new_file(McertNewFile $mcertNewFile)
     {
         // Get the file path
-        $newfilePath = public_path('mcerts/' . $mcertNewFile->mcert_new_file_path);
+        $newfilePath = public_path('storage/' . $mcertNewFile->mcert_new_file_path);
 
         // Delete the file from the directory
         if (file_exists($newfilePath)) {
@@ -544,6 +549,7 @@ class McertController extends Controller
             'mcert_app_file_registry_no' => 'required',
             'mcert_app_file_groom_name' => 'required',
             'mcert_app_file_bride_name' => 'required',
+            'mcert_app_file_date_of_marriage' => 'date|required',
             'mcert_app_file_attach_document' => 'required'
         ]);
     
@@ -554,7 +560,7 @@ class McertController extends Controller
         if ($request->hasFile('mcert_app_file_attach_document')) {
             $file = $request->file('mcert_app_file_attach_document');
             $filename = time() . '_' . $file->getClientOriginalName();
-            $path = $file->storeAs('mcerts', $filename, 'public'); // Change 'public' to your disk name if different
+            $path = $file->storeAs('certs', $filename, 'public');
             $path2 = $file->storeAs('', $filename, 's3'); // storing inside s3 box
 
             // Set the file path in the model
@@ -596,7 +602,7 @@ class McertController extends Controller
     public function destroy_mcert_app_file(McertAppFile $mcertAppFile)
     {
         // Get the file path
-        $appfilePath = public_path('mcerts/' . $mcertAppFile->mcert_app_file_path);
+        $appfilePath = public_path('storage/' . $mcertAppFile->mcert_app_file_path);
 
         // Delete the file from the directory
         if (file_exists($appfilePath)) {
@@ -620,6 +626,7 @@ class McertController extends Controller
             'mcert_app_file_registry_no' => '',
             'mcert_app_file_groom_name' => '',
             'mcert_app_file_bride_name' => '',
+            'mcert_app_file_date_of_marriage' => '',
             'mcert_app_file_attach_document' => ''
         ]);
     

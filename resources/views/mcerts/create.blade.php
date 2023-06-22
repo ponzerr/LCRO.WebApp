@@ -479,6 +479,78 @@
                 <label for="mcert_b_consent_given_residence">21. House No., St., , Barangay., City/Municipality, Province, Country</label>
                 <input type="text" name="mcert_b_consent_given_residence" id="mcert_b_consent_given_residence" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
               </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subscribed and Sworn -->
+      <div class="min-h-screen bg-gray-100 flex items-center justify-center">
+  <div class="container max-w-screen-lg mx-auto">
+    
+      <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+          <div class="text-gray-600">
+            <p class="font-medium text-lg">Excempt from Documentary Stamp</p>
+            <p>Please fill out all the fields.</p>
+          </div>
+
+          
+          <div class="lg:col-span-2">
+            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-6">
+            <!-- Name of Applicant -->
+            <label class="md:col-span-3">
+            SUBSCRIBED AND SWORN to before me this
+            </label>
+            <div class="md:col-span-3">
+              <input type="text" name="mcert_subscribed_blank1" id="mcert_subscribed_blank1" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" required/>      
+              </div>
+            <label class="md:col-span-2">
+            day of
+            </label>
+            <div class="md:col-span-2 ">
+              <input type="text" name="mcert_subscribed_blank2" id="mcert_subscribed_blank2" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" required/>      
+              </div>
+            <div class="md:col-span-2">
+              <input type="text" name="mcert_subscribed_blank3" id="mcert_subscribed_blank3" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" required/>      
+            </div>
+            <label class="md:col-span-2">
+            at
+            </label>
+            <div class="md:col-span-4">
+              <input type="text" name="mcert_subscribed_blank4" id="mcert_subscribed_blank4" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" required/>      
+            </div>
+            <label class="md:col-span-5">
+            Philippines affiant who exhibited to me his Community Tax Cert.
+            </label>
+            <div class="md:col-span-1">
+              <input type="text" name="mcert_subscribed_blank5" id="mcert_subscribed_blank5" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" required/>      
+            </div>
+            <label class="md:col-span-1">
+            issued on
+            </label>
+            <div class="md:col-span-3">
+              <input type="text" name="mcert_subscribed_blank6" id="mcert_subscribed_blank6" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" required/>      
+            </div>
+            <div class="md:col-span-2">
+              <input type="text" name="mcert_subscribed_blank7" id="mcert_subscribed_blank7" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" required/>      
+            </div>
+            <label class="md:col-span-1">  
+            at
+            </label>
+            <div class="md:col-span-5">
+              <input type="text" name="mcert_subscribed_blank8" id="mcert_subscribed_blank8" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" required/>      
+            </div>
+            <label class="text-center justify-center md:col-span-6">  
+            Name of the Civil Registrar
+            </label>
+            <div class="md:col-span-6">
+              <input type="text" name="mcert_subscribed_blank8" id="mcert_subscribed_blank8" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" required/>      
+            </div>
+
+            
+            
             <br>
               
             </div>

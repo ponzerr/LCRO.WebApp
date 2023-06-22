@@ -6,16 +6,19 @@ namespace App\Http\Controllers;
 
 use FPDF;
 use TCPDF;
+use Config;
 use Carbon\Carbon;
 use Dompdf\Dompdf;
 use Aws\S3\S3Client;
 use App\Models\Mcert;
 use Barryvdh\DomPDF\PDF;
+use App\Models\BcertFile;
 use App\Models\McertFile;
 use App\Models\McertAppFile;
 use App\Models\McertNewFile;
 use Illuminate\Http\Request;
 use setasign\Fpdi\Tcpdf\Fpdi;
+use Aws\Credentials\Credentials;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
@@ -2017,7 +2020,36 @@ $pdf->MultiCell($paragraphWidth, $paragraphHeight, "     SUBSCRIBED AND SWORN to
     }
 
 
+    public function fillPDFForm($data)
+    {
+        // Load the PDF template using FPDI with TCPDF as the base class
+        $pdf = new Fpdi();
+        $pdf->setSourceFile('storage/app/public/template.pdf');
+        $template = $pdf->importPage(1);
 
+        // Add a new page
+        $pdf->AddPage();
+
+        // Use the imported template
+        $pdf->useTemplate($template);
+
+        // Set the font and font size
+        $pdf->SetFont('Helvetica', '', 12);
+
+        // Iterate through the data and fill the form fields
+        foreach ($data as $fieldName => $fieldValue) {
+            // Set the position of the field
+            $x = 50; // Adjust the X-coordinate as needed
+            $y = 100; // Adjust the Y-coordinate as needed
+
+            // Set the field value and position
+            $pdf->SetXY($x, $y);
+            $pdf->setField($fieldName, $fieldValue);
+        }
+
+        // Output or save the filled PDF
+        $pdf->Output('filled_form.pdf', 'D');
+    }
 
     
 
@@ -2071,21 +2103,37 @@ $pdf->MultiCell($paragraphWidth, $paragraphHeight, "     SUBSCRIBED AND SWORN to
         return view('mcerts.mcert_new_file.index_new_file', ['mcertNewFiles' => $filteredMcerts]);
     }
 
+    public function generateReportBirth(Request $request)
+    {
+        $startDate = Carbon::parse($request->input('start_date'))->startOfDay();
+        $endDate = Carbon::parse($request->input('end_date'))->endOfDay();
+
+        $filteredBcerts = BcertFile::whereBetween('created_at', [$startDate, $endDate])->get();
+
+        // You can pass the filtered mcerts to your view or perform further processing
+
+        return view('bcerts.index_file', ['bcertFiles' => $filteredBcerts]);
+    }
+
 
     public function searchall(Request $request){
         
         $searchQuery = $request->input('query');
-
         // AWS SDK configuration
+        $key = config('aws.key');
+        $secret = config('aws.secret');
+        // dd($key);
+        // $credentials = new Credentials(config('services.key'), config('services.secret'));
+        // dd($key);
         $s3 = new S3Client([
             'version' => 'latest',
-            'region' => env('AWS_DEFAULT_REGION'),
+            'region' => 'ap-southeast-1',
             'credentials' => [
-                'key' => env('AWS_ACCESS_KEY_ID'),
-                'secret' => env('AWS_SECRET_ACCESS_KEY'),
+                'key' => $key,
+                'secret' => $secret,
             ],
         ]);
-
+        // dd($s3);
         $bucketName = 'lcro-pdf-result-bucket';
         $folderPath = '';
         $results = [];

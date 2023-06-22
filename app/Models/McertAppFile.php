@@ -13,6 +13,7 @@ class McertAppFile extends Model
         'mcert_app_file_registry_no',
         'mcert_app_file_groom_name',
         'mcert_app_file_bride_name',
+        'mcert_app_file_date_of_marriage',
         'mcert_app_file_attach_document',
         'mcert_app_file_path'
     ];

@@ -54,8 +54,8 @@
                     <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-menu-button" tabindex="-1" x-show="isOpen" @click.away="isOpen = false">
                         <div class="py-1" role="none">
                             <a href="{{ route('mcerts.index_file') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem" tabindex="-1" id="dropdown-menu-item-1">Marriage Certificate</a>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem" tabindex="-1" id="dropdown-menu-item-2">Birth Certificate</a>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem" tabindex="-1" id="dropdown-menu-item-3">Death Certificate</a>
+                            <a href="{{ route('bcerts.index_file') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem" tabindex="-1" id="dropdown-menu-item-2">Birth Certificate</a>
+                            <a href="{{ route('dcerts.index_file') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem" tabindex="-1" id="dropdown-menu-item-3">Death Certificate</a>
                         </div>
                     </div>
                     </div>
@@ -109,30 +109,11 @@
             data-tooltip="tooltip"
             class="absolute w-max whitespace-normal break-words rounded-lg border border-blue-gray-50 bg-white p-4 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none"
             >
-            These are old marriage certficates.
+            These are marriage applications.
             </div>
             </a>
         </li>
         @endif
-
-        @can('manage-users')
-        <li class="block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased">
-            <a href="{{route('manage-users')}}">
-            <button
-            data-ripple-light="true"
-            data-tooltip-target="tooltip"
-            class="flex items-center">
-            Manage Users
-            </button>
-            <div
-            data-tooltip="tooltip"
-            class="absolute w-max whitespace-normal break-words rounded-lg border border-blue-gray-50 bg-white p-4 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none"
-            >
-            These user accounts waiting for approval.
-            </div>
-            </a>
-        </li>
-        @endcan
         
        
 
@@ -208,6 +189,32 @@
                     </div>
                 </form>
 
+                @elseif(request()->routeIs(['bcerts.index_file', 'bcerts.search_file', 'generate-birth-report']))
+                    <form action="{{ route('bcerts.search_file')}}" method="GET">
+                    @csrf
+                    <div class="mb">
+                        <input
+                            type="text"
+                            class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-1.1 py-1.3 text-sm font-normal leading-[1.3] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-900 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-900 dark:placeholder:text-neutral-900 dark:focus:border-primary"
+                            name="query"
+                            placeholder="Search..."
+                        />
+                    </div>
+                </form>
+
+                @elseif(request()->routeIs(['dcerts.index_file', 'dcerts.search_file', 'generate-birth-report']))
+                    <form action="{{ route('dcerts.search_file')}}" method="GET">
+                    @csrf
+                    <div class="mb">
+                        <input
+                            type="text"
+                            class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-1.1 py-1.3 text-sm font-normal leading-[1.3] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-900 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-900 dark:placeholder:text-neutral-900 dark:focus:border-primary"
+                            name="query"
+                            placeholder="Search..."
+                        />
+                    </div>
+                </form>
+
             @endif
         </li>
                         @auth
@@ -241,7 +248,11 @@
                                         <x-dropdown-link href="{{ route('profile.show') }}">
                                             {{ __('Profile') }}
                                         </x-dropdown-link>
-
+                                        @can('manage-users')
+                                        <x-dropdown-link href="{{ route('manage-users') }}">
+                                            {{ __('Manage Users') }}
+                                        </x-dropdown-link>
+                                        @endcan
                                         <div class="border-t border-gray-200"></div>
 
                                         <!-- Authentication -->

@@ -95,6 +95,16 @@ class Mcert extends Model
         'mcert_b_consent_given_relationship',
         'mcert_b_consent_given_citizenship',
         'mcert_b_consent_given_residence',
+        // Subscribe Sworn
+        'mcert_subscribed_blank1',
+        'mcert_subscribed_blank2',
+        'mcert_subscribed_blank3',
+        'mcert_subscribed_blank4',
+        'mcert_subscribed_blank5',
+        'mcert_subscribed_blank6',
+        'mcert_subscribed_blank7',
+        'mcert_subscribed_blank8',
+        'mcert_subscribed_name_of_CR', 
         'mcert_status'
 
     ];

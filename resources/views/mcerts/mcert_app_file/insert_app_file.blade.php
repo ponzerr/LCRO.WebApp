@@ -32,6 +32,10 @@
               <label for="mcert_app_file_bride_name" class="text-sm font-bold text-gray-500 tracking-wide">Bride Name</label>
               <input type="text" name="mcert_app_file_bride_name" id="mcert_app_file_bride_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" required/>
             </div>
+            <div class="md:col-span-6">
+              <label for="mcert_app_file_date_of_marriage" class="text-sm font-bold text-gray-500 tracking-wide">Date of Marriage</label>
+              <input type="date" name="mcert_app_file_date_of_marriage" id="mcert_app_file_date_of_marriage" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" required/>
+            </div>
           </div>
         </div>
       </div>

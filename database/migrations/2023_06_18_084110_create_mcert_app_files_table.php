@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('mcert_app_file_registry_no')->nullable();
             $table->string('mcert_app_file_groom_name')->nullable();
             $table->string('mcert_app_file_bride_name')->nullable();
+            $table->date('mcert_app_file_date_of_marriage')->nullable();
             $table->string('mcert_app_file_attach_document')->nullable();
             $table->string('mcert_app_file_path')->nullable();
             $table->timestamps();

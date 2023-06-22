@@ -39,14 +39,14 @@
 						</div>
 
                         <div class="md:col-span-6">
-							<label for="mcert_new_file_attach_document" class="text-sm font-bold text-gray-500 tracking-wide">PDF File</label>
-							<h1 name="mcert_new_file_attach_document" id="mcert_new_file_attach_document" class="h-10 border mt-1 rounded px-4 w-full bg-gray-100 flex items-center left-center text-base">
-                {{$mcertNewFile->mcert_new_file_attach_document}}</h1>
+                        <label for="mcert_new_file_attach_document" class="text-sm font-bold text-gray-500 tracking-wide">PDF File</label>
+                        <h1 name="mcert_new_file_attach_document" id="mcert_new_file_attach_document" class="h-10 border mt-1 rounded px-4 w-full bg-gray-100 flex items-center left-center text-base">
+                          {{$mcertNewFile->mcert_new_file_attach_document}}</h1>
                         </div>
 
                         <div class="md:col-span-6">
                             <label for="mcert_new_file_path" class="text-sm font-bold text-gray-500 tracking-wide">PDF File</label>
-                            <a href="{{ asset('mcerts/' . $mcertNewFile->mcert_file_path) }}" target="_blank" class="text-blue-600 hover:underline">
+                            <a href="{{ asset('storage/' . $mcertNewFile->mcert_file_path) }}" target="_blank" class="text-blue-600 hover:underline">
                             <textarea name="mcert_new_file_path" id="mcert_new_file_path" class="h-10 border mt-1 rounded px-4 w-full bg-gray-100 flex items-center text-base">
                               {{$mcertNewFile->mcert_new_file_path}}</textarea>
                              </a>

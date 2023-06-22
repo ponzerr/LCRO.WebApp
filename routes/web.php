@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\BcertController;
+use App\Http\Controllers\DcertController;
 use App\Http\Controllers\McertController;
 use App\Http\Controllers\ManageUserController;
 
@@ -31,6 +33,32 @@ Route::controller(PDFController::class,)->group(function () {
     Route::post('/generate-approved-license-report', 'generateReportApproved')->middleware('auth')->name('generate-approved-report');
     Route::post('/generate-marriage-legacy-certificate-report', 'generateReportLegacy')->middleware('auth')->name('generate-legacy-report');
     Route::post('/generate-marriage-recent-certificate-report', 'generateReportRecent')->middleware('auth')->name('generate-recent-report');
+    Route::post('/generate-birth-certificate-report', 'generateReportBirth')->middleware('auth')->name('generate-birth-report');
+    Route::post('/generate-death-certificate-report', 'generateReportDeath')->middleware('auth')->name('generate-death-report');
+});
+
+Route::controller(BcertController::class,)->group(function () {
+    Route::get('/birth/insert_pdf', 'create_bcert_file')->middleware('auth')->name('bcerts.pdf');
+    Route::post('/birth/insert_pdf','store_bcert_file')->middleware('auth')->name('bcerts.pdf.file');
+    Route::get('/birth/birth_file/show/{bcertFile}', 'show_bcert_file')->middleware('auth')->name('bcerts.show_file');
+    Route::get('/birth/birth_file/search', 'search_bcert_file')->middleware('auth')->name('bcerts.search_file');
+    Route::post('/birth/birth_file/store','store_bcert_file')->middleware('auth')->name('bcerts.store_file');
+    Route::get('/birth/birth_file/marriage_certificates', 'index_bcert_file')->middleware('auth')->name('bcerts.index_file');
+    Route::delete('/birth/bcert_file/delete/{bcertFile}', 'destroy_bcert_file')->middleware('auth')->name('bcerts.destroy_file');
+    Route::get('/birth/bcert_file/edit/{bcertFile}', 'edit_bcert_file')->middleware('auth')->name('bcerts.edit_file');
+    Route::put('/birth/bcert_file/update/{bcertFile}', 'update_bcert_file')->middleware('auth')->name('bcerts.update_file');
+});
+
+Route::controller(DcertController::class,)->group(function () {
+    Route::get('/death/insert_pdf', 'create_dcert_file')->middleware('auth')->name('dcerts.pdf');
+    Route::post('/death/insert_pdf','store_dcert_file')->middleware('auth')->name('dcerts.pdf.file');
+    Route::get('/death/death_file/show/{dcertFile}', 'show_dcert_file')->middleware('auth')->name('dcerts.show_file');
+    Route::get('/death/death_file/search', 'search_dcert_file')->middleware('auth')->name('dcerts.search_file');
+    Route::post('/death/death_file/store','store_dcert_file')->middleware('auth')->name('dcerts.store_file');
+    Route::get('/death/death_file/marriage_certificates', 'index_dcert_file')->middleware('auth')->name('dcerts.index_file');
+    Route::delete('/death/dcert_file/delete/{dcertFile}', 'destroy_dcert_file')->middleware('auth')->name('dcerts.destroy_file');
+    Route::get('/death/dcert_file/edit/{dcertFile}', 'edit_dcert_file')->middleware('auth')->name('dcerts.edit_file');
+    Route::put('/death/dcert_file/update/{dcertFile}', 'update_dcert_file')->middleware('auth')->name('dcerts.update_file');
 });
 
 Route::controller(McertController::class,)->group(function () {
@@ -76,7 +104,7 @@ Route::controller(McertController::class,)->group(function () {
     Route::get('/mcerts/mcerts_application_file/marriage_certificates', 'index_mcert_app_file')->middleware('auth')->name('mcerts.index_app_file');
     Route::delete('/mcerts/mcert_application_file/delete/{mcertAppFile}', 'destroy_mcert_app_file')->middleware('auth')->name('mcerts.destroy_app_file');
     Route::get('/mcerts/mcert_application_file/edit/{mcertAppFile}', 'edit_mcert_app_file')->middleware('auth')->name('mcerts.edit_app_file');
-    Route::put('/mcerts/mcert_application_file/update/{mcertAppFile}', 'update-mcert_app_file')->middleware('auth')->name('mcerts.update_app_file');
+    Route::put('/mcerts/mcert_application_file/update/{mcertAppFile}', 'update_mcert_app_file')->middleware('auth')->name('mcerts.update_app_file');
 });
 
 

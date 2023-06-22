@@ -13,6 +13,7 @@ class McertFile extends Model
         'mcert_file_registry_no',
         'mcert_file_groom_name',
         'mcert_file_bride_name',
+        'mcert_file_date_of_marriage',
         'mcert_file_attach_document',
         'mcert_file_path'
     ];

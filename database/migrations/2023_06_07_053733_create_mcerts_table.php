@@ -97,6 +97,16 @@ return new class extends Migration
             $table->text('mcert_b_consent_given_relationship')->nullable();
             $table->text('mcert_b_consent_given_citizenship')->nullable();
             $table->text('mcert_b_consent_given_residence')->nullable();
+            // Subscribed and sworn
+            $table->text('mcert_subscribed_blank1')->nullable();
+            $table->text('mcert_subscribed_blank2')->nullable();
+            $table->text('mcert_subscribed_blank3')->nullable();
+            $table->text('mcert_subscribed_blank4')->nullable();
+            $table->text('mcert_subscribed_blank5')->nullable();
+            $table->text('mcert_subscribed_blank6')->nullable();
+            $table->text('mcert_subscribed_blank7')->nullable();
+            $table->text('mcert_subscribed_blank8')->nullable();
+            $table->text('mcert_subscribed_name_of_CR')->nullable();
             //scanned file
             $table->boolean('mcert_status')->nullable();
             $table->timestamps();
