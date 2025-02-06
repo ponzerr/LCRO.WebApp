@@ -1,7 +1,7 @@
 # Civil Registry Office System (LCRO System)
 
 ## Overview
-The Local Civil Registry Office System (LCRO System) is a data banking solution designed to manage and organize records for marriage, death, and birth certificates within the city of Bayambang. This project serves as a centralized platform to streamline the management of civil registry documents, ensuring efficiency, accuracy, and ease of access for the local government unit and its constituents.
+The Local Civil Registry Office System (LCRO System) is a data banking solution designed to manage and organize records for marriage, death, and birth certificates within the city. This project serves as a centralized platform to streamline the management of civil registry documents, ensuring efficiency, accuracy, and ease of access for the local government unit and its constituents.
 
 ## Purpose
 This system was developed as part of my internship with the Bayambang ICT Department. It marks my first-ever Laravel project and reflects my commitment to contributing to the digital transformation initiatives within the city. By digitizing and centralizing civil registry records, this system aims to:
