@@ -29,7 +29,7 @@ This system was developed as part of my internship with the Bayambang ICT Depart
 ## Technologies Used
 - **Framework:** Laravel (PHP) 
 - **Database:** MySQL
-- **Frontend:** Blade templates
+- **Frontend:** HTML, CSS, Tailwind
 - **Other Tools:** 
   - Composer for dependency management.
   - Git for version control.
